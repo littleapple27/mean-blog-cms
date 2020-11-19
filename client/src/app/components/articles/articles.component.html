@@ -1,0 +1,133 @@
+<button *ngIf="!showArticleForm" (click)="showArticleForm = !showArticleForm" class="btn btn-info mb-3"><i
+    class="fa fa-plus"></i>
+  Add New Article</button>
+<div *ngIf="showArticleForm" class="mb-5">
+  <h2>Add Article</h2>
+  <form #articleForm="ngForm" (ngSubmit)="onSubmit(articleForm)">
+    <div class="form-group">
+      <label>Pub Date</label>
+      <input [(ngModel)]="article.pubDate" type="date" class="form-control" name="pubDate" #articlePubDate="ngModel"
+        required [min]="minDate">
+      <div [hidden]="!articlePubDate.errors?.minlength" class="invalid-feedback">
+        Pub date cannot be in the past. 
+      </div> 
+    </div>
+   
+   
+    <div class="form-group">
+      <label>Title</label>
+      <input [(ngModel)]="article.title" type="text" class="form-control" name="title" #articleTitle="ngModel" required
+        minlength="2">
+      <!-- <div [hidden]="!userLastName.errors?.required" class="invalid-feedback">
+        Last name is required
+      </div>
+      <div [hidden]="!userLastName.errors?.minlength" class="invalid-feedback">
+        Last name must be at least 2 characters
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label>Author</label>
+      <input [(ngModel)]="article.author" type="text" class="form-control" name="author" #articleAuthor="ngModel"
+        required minlength="2">
+      <!-- <div [hidden]="!userLastName.errors?.required" class="invalid-feedback">
+        Last name is required
+      </div>
+      <div [hidden]="!userLastName.errors?.minlength" class="invalid-feedback">
+        Last name must be at least 2 characters
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label>Image (file upload not functioning yet)</label>
+      <input [(ngModel)]="article.img" type="file" class="form-control-file" name="img">
+      <input [(ngModel)]="article.img" type="text" class="form-control" name="img" required>
+      <!-- <div [hidden]="!userEmail.errors?.required" class="invalid-feedback">
+		  Email is required
+		</div>
+		<div [hidden]="!userEmail.errors?.pattern" class="invalid-feedback">
+		  Email is not valid
+		</div> -->
+    </div>
+
+    <div class="form-group">
+      <label>Content</label>
+      <div [froalaEditor] name="content" required>Create New Post Here</div>
+    </div>
+
+    <div class="form-group">
+      <label>Status</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="goLive" value="true" checked>
+        <label class="form-check-label" for="goLive">
+          Go live?
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="futureDate" value="true">
+        <label class="form-check-label" for="futureDate">
+          Future date?
+        </label>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button (click)="showArticleForm = !showArticleForm" type="button" class="btn btn-secondary">Cancel</button>
+      <button [disabled]="!articleForm.form.valid" class="btn btn-info">Publish Article</button>
+    </div>
+
+  </form>
+</div>
+
+
+
+<h4 *ngIf="articles?.length == 0">No Articles found!</h4>
+<h4 *ngIf="!loaded">Loading Articles...</h4>
+
+<div *ngIf="!showArticleForm" class="my-3 p-3 bg-white rounded shadow-sm clearfix">
+  <div class="d-flex flex-column flex-md-row border-bottom">
+    <h1 class="border-gray mb-0">{{ title }}</h1>
+    <small class="d-flex flex-column flex-md-row mt-3 ml-auto text-md-right">
+      <span class="mr-3">Filter by:</span>
+      <a class="mr-3" href="#">All</a>
+      <a class="mr-3" href="#">Active</a>
+      <a class="mr-3" href="#">Upcoming</a>
+      <a class="mr-3" href="#">Archived</a>
+    </small>
+
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Status</th>
+          <th>Pub Date</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Image</th>
+          <th>Content</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="articles?.length > 0">
+        <tr *ngFor="let article of articles">
+          <td>{{ article.id }}</td>
+          <td *ngIf="!article.isActive && !article.isUpcoming"><span class="text-info">Archived</span></td>
+          <td *ngIf="article.isActive && !article.isUpcoming"><span class="text-success">Active</span></td>
+          <td *ngIf="!article.isActive && article.isUpcoming"><span class="text-warning">Upcoming</span></td>
+          <td>{{ article.pubDate | date:'short' }}</td>
+          <td>{{ article.title }}</td>
+          <td>{{ article.author }}</td>
+          <td><img src="{{article.img}}" /></td>
+          <td class="text-center"><a class="btn-link" href=""> <i class="fa fa-eye mr-2"></i></a></td>
+          <td class="d-flex justify-content-between">
+            <a class="btn-link mb-2" href=""> <i class="fa fa-pencil mr-2"></i></a>
+            <a class="btn-link mb-2" href=""> <i class="fa fa-archive mr-2"></i></a>
+            <a class="btn-link mb-2" href=""> <i class="fa fa-trash mr-2"></i></a>
+          </td>
+        </tr>
+        <div>{{ article.content }}</div>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<a routerLink="/users/create" class="btn btn-info mb-3"><i class="fa fa-plus"></i>
+  Add New User</a>
+
+
+<div class="my-3 p-3 bg-white rounded shadow-sm clearfix">
+  <div class="d-flex flex-column flex-md-row border-bottom mb-3">
+    <h1 class="border-gray mb-0">Title replace</h1>
+    <small class="d-flex flex-column flex-md-row mt-3 ml-auto text-md-right">
+      <span class="mr-3">Filter by:</span>
+      <a class="mr-3" href="#">Administrator</a>
+      <a class="mr-3" href="#">Limited</a>
+    </small>
+  </div>
+
+  <!-- No user data message -->
+  <div>
+    <p *ngIf="Users?.length == 0" class="text-center text-muted">No Users found!</p>
+    <!-- <p *ngIf="!loaded">Loading Users...</p> -->
+  </div>
+
+  <div *ngIf="Users?.length > 0">
+    <div class="media text-muted pt-3" *ngFor='let user of Users; let i = index' [class.bg-light]="user.isActive">
+      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+        <title>Placeholder</title>
+        <rect *ngIf="user.isAdmin" width="100%" height="100%" fill="#6f42c1" /><text *ngIf="user.isAdmin" x="50%"
+          y="50%" fill="#6f42c1" dy=".3em">32x32</text>
+        <rect *ngIf="!user.isAdmin" width="100%" height="100%" fill="#007bff" /><text *ngIf="!user.isAdmin" x="50%"
+          y="50%" fill="#007bff" dy=".3em">32x32</text>
+      </svg>
+
+      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <div class="d-flex w-100">
+
+          <div class="d-flex flex-column mb-3">
+            <strong class="text-gray-dark">{{ user.firstName }} {{ user.lastName }}</strong>
+            <span class="d-block" *ngIf="user.isAdmin">Administrator</span>
+            <span class="d-block" *ngIf="!user.isAdmin">Limited</span>
+          </div>
+
+          <div class="ml-auto">
+            <button (click)="user.hide = !user.hide" class="btn btn-link mr-2">
+              <i class="fa fa-eye" [ngClass]="user.hide ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+            </button>
+
+
+            <a class="btn btn-link  mr-2" (click)="removeUser(user, i)">
+              <i class="fa fa-trash"></i>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="d-flex flex-column" *ngIf="!user.hide">
+          <span>Email: {{ user.email}}</span>
+          <div class="d-flex flex-md-row flex-sm-column">
+            <a class="mr-3" href="#">Change Password</a>
+            <a class="mr-3" href="#">Change Access</a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav class="mt-3" aria-label="Page navigation example">
+    <ul class="pagination float-right">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
