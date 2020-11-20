@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { UserService } from '../../../services/user-api.service';
-import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class UserCreateComponent implements OnInit {
   submitted = false;
   title: string = "Authorized Users";
-  userCreateForm: FormGroup;
+  public userCreateForm: FormGroup;
 
   showExtended: boolean = false;
   loaded: boolean = false;
@@ -20,7 +20,7 @@ export class UserCreateComponent implements OnInit {
   showUserCreateForm: boolean = false;
 
   constructor(
-    public fb: FormBuilder,
+    private fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
     private userService: UserService
@@ -56,8 +56,10 @@ export class UserCreateComponent implements OnInit {
     return this.userCreateForm.controls;
   }
 
+
   onSubmit() {
     this.submitted = true;
+    console.log("submit button has been clicked.");
     if (!this.userCreateForm.valid) {
       return false;
     } else {

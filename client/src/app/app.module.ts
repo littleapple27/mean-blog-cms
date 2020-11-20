@@ -1,4 +1,5 @@
 //Modules
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
@@ -23,15 +24,15 @@ import { UserService } from './services/user-api.service';
 import { ArticleService } from './services/article.service';
 
 //Directives
-import { EqualValidator } from './components/users/user-create/directives/equal-validator.directive';
+//import { EqualValidator } from './components/users/user-create/directives/equal-validator.directive';
 
 //Misc
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { UserDetailsComponent } from './components/users/user-details/user-details.component';
 
 @NgModule({
-  declarations: [AppComponent, UserListComponent, UserCreateComponent, NavbarComponent, DashboardComponent, ArticlesComponent, EventsComponent, MainViewComponent, LoginComponent, EqualValidator, UserDetailsComponent],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),BlogAppSharedModule.forRoot()],
+  declarations: [AppComponent, UserListComponent, UserCreateComponent, NavbarComponent, DashboardComponent, ArticlesComponent, EventsComponent, MainViewComponent, LoginComponent, UserDetailsComponent],
+  imports: [CommonModule, BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),BlogAppSharedModule.forRoot()],
   providers: [
     UserService,
     ArticleService],

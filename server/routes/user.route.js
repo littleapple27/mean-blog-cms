@@ -7,7 +7,7 @@ let User = require('../models/User');
 
 // Add Users
 userRoute.route('/users/create').post((req, res, next) => {
-	User.create(req.body, (error, data) => {
+	User.create(req.body, (error, data, next) => {
 		if (error) {
 			return next(error)
 		} else {
@@ -17,7 +17,7 @@ userRoute.route('/users/create').post((req, res, next) => {
 });
 
 // Get All Users
-userRoute.route('/users').get((req, res) => {
+userRoute.route('/users').get((req, res, next) => {
 	User.find((error, data) => {
 		if (error) {
 			return next(error)
@@ -59,7 +59,7 @@ userRoute.route('/users/update/:id').put((req, res, next) => {
 // Delete employee
 //TODO RETURNS 404 NOT FOUND
 
-userRoute.route('/users/delete/:id').delete((req, res, next) => {
+userRoute.route('/users/:id').delete((req, res, next) => {
 	User.findOneAndRemove(req.params.id, (error, data) => {
 		if (error) {
 			return next(error);

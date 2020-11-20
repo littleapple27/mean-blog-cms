@@ -6,9 +6,6 @@ const path = require("path"),
 	createError = require('http-errors'),
 	dbConfig = require('./db/db');
 
-const corsOptions = {
-	origin: 'http://127.0.0.1'
-};
 
 // Connecting with mongo db
 mongoose.Promise = global.Promise;
@@ -32,7 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false
 }));
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Create link to Angular build directory
 // The `ng build` command will save the result
