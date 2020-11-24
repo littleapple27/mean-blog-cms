@@ -34,7 +34,8 @@
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/popper.js/dist/umd/popper.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
+              "./src/js/custom.js"
             ]
           },
           "configurations": {
@@ -158,12 +159,16 @@
             "styles": [
               "projects/blogApp/src/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/font-awesome/css/font-awesome.css"
+              "./node_modules/font-awesome/css/font-awesome.css",
+              "./node_modules/froala-editor/css/froala_editor.pkgd.min.css",
+              "./node_modules/froala-editor/css/froala_style.min.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/popper.js/dist/umd/popper.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js"]
+              "./node_modules/bootstrap/dist/js/bootstrap.js",
+              "./node_modules/froala-editor/js/froala_editor.pkgd.min.js"]
+              
           },
           "configurations": {
             "production": {

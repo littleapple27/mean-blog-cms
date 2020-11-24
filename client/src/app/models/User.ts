@@ -4,7 +4,8 @@ export class User {
   email: string;
   pw: string;
   pwConfirm: string;
-  isAdmin: boolean;
+  isAdmin?: boolean;
+  //isLimited?: boolean;
   hide?: boolean;
   isActive?: boolean;
   icon?: any;

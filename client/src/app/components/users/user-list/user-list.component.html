@@ -4,7 +4,7 @@
 
 <div class="my-3 p-3 bg-white rounded shadow-sm clearfix">
   <div class="d-flex flex-column flex-md-row border-bottom mb-3">
-    <h1 class="border-gray mb-0">Title replace</h1>
+    <h1 class="border-gray mb-0">{{title}}</h1>
     <small class="d-flex flex-column flex-md-row mt-3 ml-auto text-md-right">
       <span class="mr-3">Filter by:</span>
       <a class="mr-3" href="#">Administrator</a>
@@ -12,7 +12,7 @@
     </small>
   </div>
 
-  <!-- No user data message -->
+  <!-- No  data message -->
   <div>
     <p *ngIf="Users?.length == 0" class="text-center text-muted">No Users found!</p>
     <!-- <p *ngIf="!loaded">Loading Users...</p> -->
@@ -33,7 +33,9 @@
         <div class="d-flex w-100">
 
           <div class="d-flex flex-column mb-3">
+
             <strong class="text-gray-dark">{{ user.firstName }} {{ user.lastName }}</strong>
+            <span>dbID: {{user._id}}</span>
             <span class="d-block" *ngIf="user.isAdmin">Administrator</span>
             <span class="d-block" *ngIf="!user.isAdmin">Limited</span>
           </div>
@@ -43,7 +45,6 @@
               <i class="fa fa-eye" [ngClass]="user.hide ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
             </button>
 
-
             <a class="btn btn-link  mr-2" (click)="removeUser(user, i)">
               <i class="fa fa-trash"></i>
             </a>
@@ -52,9 +53,9 @@
         </div>
 
         <div class="d-flex flex-column" *ngIf="!user.hide">
-          <span>Email: {{ user.email}}</span>
+          <span>Email: {{ user.email }}</span>
           <div class="d-flex flex-md-row flex-sm-column">
-            <a class="mr-3" href="#">Change Password</a>
+            <a class="mr-3" routerLink="/users/pw/{{user._id}}">Change Password</a>
             <a class="mr-3" href="#">Change Access</a>
           </div>
         </div>

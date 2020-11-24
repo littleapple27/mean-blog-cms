@@ -7,7 +7,7 @@ let User = require('../models/User');
 
 // Add Users
 userRoute.route('/users/create').post((req, res, next) => {
-	User.create(req.body, (error, data, next) => {
+	User.create(req.body, (error, data) => {
 		if (error) {
 			return next(error)
 		} else {
@@ -39,10 +39,22 @@ userRoute.route('/users/:id').get((req, res, next) => {
 })
 
 
-// Update employee
+// Update password
+userRoute.route('/users/:id').put((req, res, next) => {
+	User.findByIdAndUpdate(req.params.id, {
+		$set: req.body
+	}, (error, data) => {
+		if (error) {
+			return next(error);
+			console.log(error)
+		} else {
+			res.json(data)
+			console.log('Data updated successfully')
+		}
+	})
+})
 
-//TODO RETURNS 404 NOT FOUND
-userRoute.route('/users/update/:id').put((req, res, next) => {
+userRoute.route('/users/:id').put((req, res, next) => {
 	User.findByIdAndUpdate(req.params.id, {
 		$set: req.body
 	}, (error, data) => {
@@ -57,8 +69,6 @@ userRoute.route('/users/update/:id').put((req, res, next) => {
 })
 
 // Delete employee
-//TODO RETURNS 404 NOT FOUND
-
 userRoute.route('/users/:id').delete((req, res, next) => {
 	User.findOneAndRemove(req.params.id, (error, data) => {
 		if (error) {

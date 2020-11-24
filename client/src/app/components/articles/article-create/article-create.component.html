@@ -1,0 +1,153 @@
+<div class="mb-5">
+  <!-- Actions -->
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h2 class="h2">Add Article</h2>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group mr-2">
+        <a routerLink="/articles" class="btn btn-sm btn-outline-info"><i class="fa fa-eye-slash mr-2"></i>Hide
+          Preview</a>
+        <a routerLink="/edit" class="btn btn-sm btn-outline-primary"><i class="fa fa-pencil mr-2"></i>Edit</a>
+        <button class="btn btn-sm btn-outline-success"><i class="fa fa-upload mr-2"></i>Publish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <form [formGroup]="articleCreateForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="form-group">
+
+            <!-- Title -->
+            <h1 [froalaEditor]="optionsTitle" class="mt-4" formControlName="leadTitle">Post Title</h1>
+            <!-- error -->
+            <!-- <div class="is-invalid text-danger" *ngIf="submitted && myForm.title.errors?.required">
+              Lead Title is required.
+            </div>
+            <div class="is-invalid text-danger" *ngIf="submitted && myForm.title.errors?.minLength">
+              Lead Title must be at least 20 characters
+            </div> -->
+          </div>
+
+          <!-- Author -->
+          <div class="form-group">
+            <p class="lead" [froalaEditor]="optionsAuthor" formControlName="author">
+              by Start Bootstrap
+            </p>
+            <!-- error -->
+            <div class="is-invalid text-danger" *ngIf="submitted && myForm.author.errors?.required">
+              Author is required.
+            </div>
+            <div class="is-invalid text-danger" *ngIf="submitted && myForm.author.errors?.minLength">
+              Author must be at least 2 characters
+            </div>
+          </div>
+
+
+          <hr>
+
+          <!-- Date/Time -->
+          <div class="form-group">
+            <label>Pub Date</label>
+            <input type="date" class="form-control" formControlName="pubDate" required>
+            <!-- error -->
+            <div class="is-invalid text-danger" *ngIf="submitted && myForm.pubDate.errors?.required">
+              Publication date is required.
+            </div>
+            <div class="is-invalid text-danger" *ngIf="submitted && myForm.pubDate.errors?.minLength">
+              Title must be at least 20 characters
+            </div>
+          </div>
+
+
+          <hr>
+
+          <!-- Preview Image -->
+          <img class="img-fluid rounded" src="https://picsum.photos/900/300" alt="">
+
+          <hr>
+
+          <!-- Post Content -->
+          <p [froalaEditor]="optionsContent" formControlName="leadContent_1">Never in all their history have men been
+            able
+            truly to conceive of the world
+            as one: a single sphere, a
+            globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in
+            which there is no center because every point, or none, is center — an equal earth which all men occupy
+            as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in
+            theory.
+          </p>
+
+          <blockquote class="blockquote" [froalaEditor]="optionsBQ" formControlName="leadBQ">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+            </p>
+          </blockquote>
+
+          <p [froalaEditor]="optionsContent" formControlName="leadContent_2">What was most significant about the lunar
+            voyage was not that man set foot on
+            the Moon but that they set
+            eye on the earth.</p>
+
+          <h2 class="section-heading" [froalaEditor]="optionsTitle" formControlName="subTitle1">The Final Frontier</h2>
+
+          <p [froalaEditor]="optionsContent" formControlName="subContent1_1">There can be no thought of finishing for
+            ‘aiming for the stars.’ Both
+            figuratively and literally, it is a
+            task to occupy the generations. And no matter how much progress one makes, there is always the thrill of
+            just beginning.</p>
+
+          <blockquote class="blockquote" [froalaEditor]="optionsContent" formControlName="subBQ_1">The dreams of
+            yesterday
+            are the hopes of today and
+            the reality of tomorrow.
+            Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for
+            the next ten.</blockquote>
+
+          <p [froalaEditor]="optionsContent" formControlName="subContent1_2">Spaceflights cannot be stopped. This is not
+            the work of any one man or even a
+            group of men. It is a historical process which mankind is carrying out in accordance with the natural
+            laws of human
+            development.
+          </p>
+
+          <h2 class="section-heading" [froalaEditor]="optionsTitle" formControlName="subTitle2">Reaching for the Stars
+          </h2>
+
+          <p [froalaEditor]="optionsContent" formControlName="subContent2_1">As we got further and further away, it [the
+            Earth]
+            diminished in size. Finally
+            it shrank to the size of a
+            marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so
+            delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to
+            change
+            a man.</p>
+
+          <a href="#">
+            <img class="img-fluid rounded" src="https://picsum.photos/600/400" alt="">
+          </a>
+
+          <p class="caption text-muted mb-3" [froalaEditor]="optionsImgCap" formControlName="imgCaption">To go places
+            and do things that have never been done before – that’s what living is all about.</p>
+
+          <p [froalaEditor]="optionsContent" formControlName="subContent2_2">Space, the final frontier. These are the
+            voyages of the Starship Enterprise.
+            Its five-year mission: to
+            explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has
+            gone before.</p>
+
+          <div class="modal-footer">
+            <button routerLink="/articles" type="button" class="btn btn-secondary">Cancel</button>
+            <button class="btn btn-info">Add Article</button>
+          </div>
+
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </form>
+</div>

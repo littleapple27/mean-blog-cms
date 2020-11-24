@@ -3,6 +3,7 @@ import { UserService } from '../../../services/user-api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+declare var jQuery: any;
 
 @Component({
   selector: 'app-user-create',
@@ -13,10 +14,8 @@ export class UserCreateComponent implements OnInit {
   submitted = false;
   title: string = "Authorized Users";
   public userCreateForm: FormGroup;
-
   showExtended: boolean = false;
   loaded: boolean = false;
-  enableAdd: boolean = false;
   showUserCreateForm: boolean = false;
 
   constructor(
@@ -29,7 +28,13 @@ export class UserCreateComponent implements OnInit {
     this.mainForm();
   }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void { 
+    // (function ($) {
+    //   $('input[type="checkbox"]').on('change', function () {
+    //     $('input[type="checkbox"]').not(this).prop('checked', false);
+    //   });
+    // }) (jQuery)
+   }
 
 
  mainForm() {
@@ -39,18 +44,11 @@ export class UserCreateComponent implements OnInit {
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       pw: ['', [Validators.required]],
       pwConfirm: ['', [Validators.required]],
-      isAdmin: [null, [Validators.required]]
+      isAdmin: [''],
     })
  }
   
-  // Choose designation with select dropdown
-  // updateProfile(e){
-  //   this.userCreateForm.get('designation').setValue(e, {
-  //     onlySelf: true
-  //   })
-  // }
 
-  
    // Getter to access form control
    get myForm(){
     return this.userCreateForm.controls;
@@ -59,7 +57,7 @@ export class UserCreateComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log("submit button has been clicked.");
+    //console.log("submit button has been clicked.");
     if (!this.userCreateForm.valid) {
       return false;
     } else {

@@ -21,8 +21,10 @@ mongoose.connect(dbConfig.db, {
 	}
 )
 
-//Define route for registered user
+//Define routes for all db content 
 const userRoute = require('./routes/user.route');
+const articleRoute = require('./routes/article.route');
+
 // Create new instance of the express server
 const app = express();
 app.use(bodyParser.json());
@@ -39,6 +41,7 @@ const publicDirectoryPath = path.join(__dirname, "../../client/dist/mean-blog-cm
 app.use(express.static(publicDirectoryPath));
 app.use('/', express.static(path.join(__dirname, '../../client/dist/mean-blog-cms')));
 app.use('/api', userRoute)
+app.use('/api', articleRoute)
 
 // Set localhost
 // Create port

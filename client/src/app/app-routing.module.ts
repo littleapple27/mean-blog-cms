@@ -4,11 +4,13 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { UserCreateComponent } from './components/users/user-create/user-create.component';
-import { UserListComponent } from './components/users/user-list/user-list.component';  
-import { UserDetailsComponent } from './components/users/user-details/user-details.component';  
+import { UserListComponent } from './components/users/user-list/user-list.component'; 
+import { UserPwComponent } from './components/users/user-pw/user-pw.component';  
 
+import { ArticleListComponent } from './components/articles/article-list/article-list.component';
+import { ArticleCreateComponent } from './components/articles/article-create/article-create.component';
+import { ArticleReadComponent } from './components/articles/article-read/article-read.component';
 
-import { ArticlesComponent } from './components/articles/articles.component';
 import { EventsComponent } from './components/events/events.component';
 
 const routes: Routes = [
@@ -37,25 +39,33 @@ const routes: Routes = [
     title: 'Create New User'
   }
   },
-  { path: 'users/:id', 
-    component: UserDetailsComponent,
+  {
+    path: 'users/pw/:id', 
+    component: UserPwComponent,
   data: {
-    title: 'User Details'
+    title: 'Change Password'
   }
   },
-//   { path: 'user-update/:id', 
-//     component: UserUpdateComponent,
-//   data: {
-//     title: 'Update User'
-//   }
-//   },
   //article routing
   { path: 'articles', 
-    component: ArticlesComponent,
+    component: ArticleListComponent,
     data: {
-      title: 'Manage Articles'
+      title: 'Articles List'
     }
   },
+  { path: 'articles/create', 
+    component: ArticleCreateComponent,
+    data: {
+      title: 'Create New Article'
+    }
+  },
+  { path: 'articles/:id', 
+    component: ArticleReadComponent,
+    data: {
+      title: 'Read Article'
+    }
+  },
+  //events routing (TBD)
   { path: 'events', 
     component: EventsComponent,
     data: {

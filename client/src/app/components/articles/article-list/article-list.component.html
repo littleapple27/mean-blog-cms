@@ -1,0 +1,91 @@
+<button routerLink="/articles/create" class="btn btn-info mb-3"><i class="fa fa-plus"></i>
+  Add New Article</button>
+
+<div class="my-3 p-3 bg-white rounded clearfix">
+
+  <h1 class="border-gray mb-0">{{ title }}</h1>
+
+  <div class="d-flex flex-row justify-content-between my-1">
+    <small class="d-flex flex-column flex-md-row mb-2">
+      <span class="mr-3">Filter by:</span>
+      <span class="mr-3 text-warning"><i class="fa fa-circle mr-1"></i>Upcoming</span>
+      <span class="mr-3 text-success"><i class="fa fa-circle  mr-1"></i>Active</span>
+      <span class="mr-3 text-info"><i class="fa fa-circle  mr-1"></i>Archived</span>
+    </small>
+
+    <!-- <small class="d-flex flex-column flex-md-row mb-2">
+      
+      <a class="mr-3" href="#">All</a>
+      <a class="mr-3" href="#">Active</a>
+      <a class="mr-3" href="#">Upcoming</a>
+      <a class="mr-3" href="#">Archived</a>
+    </small> -->
+  </div>
+
+  <!-- No data message -->
+  <h4 *ngIf="Articles?.length == 0">No Articles found!</h4>
+  <h4 *ngIf="!loaded">Loading Articles...</h4>
+
+
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th># dbID</th>
+          <th>Status</th>
+          <th>Pub Date</th>
+          <th>Title</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="Articles?.length > 0">
+        <tr *ngFor="let article of Articles; let i = index">
+          <td><small>{{ article._id }}</small></td>
+          <td class="text-info" *ngIf="!article.isActive && !article.isUpcoming"><i class="fa fa-circle"></i></td>
+          <td class="text-success" *ngIf="article.isActive && !article.isUpcoming"><i class="fa fa-circle"></i></td>
+          <td class="text-warning" *ngIf="!article.isActive && article.isUpcoming"><i class="fa fa-circle"></i></td>
+          <td>{{ article.pubDate | date:'short' }}</td>
+          <td class="truncate-ellipsis px-0" [innerHtml]="article.leadTitle"> </td>
+          <!--- Action Links --->
+          <td class="d-flex justify-content-between">
+            <a routerLink="/articles/{{article._id}}" class=" btn-link mr-1">
+              <i class="fa fa-eye"></i>
+            </a>
+            <a class=" btn-link mb-2" href=""> <i class="fa fa-pencil mr-1"></i></a>
+            <a class=" btn-link mb-2" href=""> <i class="fa fa-archive mr-1"></i></a>
+            <a class=" btn-link mb-2" (click)="removeArticle(article, i)"> <i class="fa fa-trash mr-1"></i></a>
+          </td>
+
+
+          <!-- <td colspan="8" *ngIf="!hide">
+            <div class="card">
+              <div class="row ">
+                <div class="col-md-4">
+                  <img src="{{article.img}}" class="w-100" alt="{{ article.imgAlt }}" />
+                </div>
+                <div class=" col-md-8 px-3">
+                  <div class="card-block px-3">
+                    <h4 class="card-title">Lorem ipsum dolor sit amet</h4>
+                    <small> {{ article.author }}</small>
+                    <p class="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                      aliquip ex ea commodo consequat. </p>
+                    <p class="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                      deserunt mollit anim id est laborum.</p>
+                    <a href="#" class="btn btn-link">
+                      Preview</a>
+                    <a href="#" class="btn btn-link">Publish</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </td> -->
+        </tr>
+        <!-- <div>{{ article.content }}</div> -->
+      </tbody>
+    </table>
+  </div>
+</div>

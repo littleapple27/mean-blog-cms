@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-//import { User } from '../models/User';
+// import { User } from '../models/User';
 import { Observable, throwError } from 'rxjs/';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
@@ -16,7 +16,7 @@ export class UserService {
   
   // Create
   createUser(data): Observable<any> {
-    let url = `${this.baseUri}`;
+    let url = `${this.baseUri}/create`;
     return this.http.post(url, data)
       .pipe(
         catchError(this.errorMgmt)

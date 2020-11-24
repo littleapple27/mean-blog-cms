@@ -7,10 +7,10 @@ import { UserService } from '../../../services/user-api.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  
-  Users:any = [];
+  title: string = 'Registered Users';
+  Users: any = [];
   loaded: boolean = false;
-
+  
   constructor(private userService: UserService) { 
     this.readUser();
   }
@@ -18,9 +18,9 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  readUser(){
+  readUser() {
     this.userService.getUsers().subscribe((data) => {
-     this.Users = data;
+      this.Users = data;
     })    
   }
 
