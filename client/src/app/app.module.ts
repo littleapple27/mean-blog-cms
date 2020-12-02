@@ -11,7 +11,7 @@ import { BlogAppSharedModule } from '../../projects/blogApp/src/app/app.module';
 //Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PortalComponent } from './components/portal/portal.component';
 import { EventsComponent } from './components/events/events.component';
 import { MainViewComponent } from './components/main-view/main-view.component';
 import { LoginComponent } from './components/login/login.component';
@@ -33,10 +33,11 @@ import { StripHtmlTagsPipe } from './directives/strip-html.directive';
 //Misc
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { UserPwComponent } from './components/users/user-pw/user-pw.component';
+import { ActivityFeedComponent } from './components/activity-feed/activity-feed.component';
 
 
 @NgModule({
-  declarations: [AppComponent, UserListComponent, UserCreateComponent, NavbarComponent, DashboardComponent, ArticleListComponent, EventsComponent, MainViewComponent, LoginComponent, UserPwComponent, EqualValidator, ArticleCreateComponent, ArticleReadComponent, StripHtmlTagsPipe],
+  declarations: [AppComponent, UserListComponent, UserCreateComponent, NavbarComponent, PortalComponent, ArticleListComponent, EventsComponent, MainViewComponent, LoginComponent, UserPwComponent, EqualValidator, ArticleCreateComponent, ArticleReadComponent, StripHtmlTagsPipe, ActivityFeedComponent],
   imports: [CommonModule, BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule, BlogAppSharedModule.forRoot(), FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()],
   providers: [
     UserService,

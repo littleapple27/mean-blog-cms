@@ -54,23 +54,11 @@ userRoute.route('/users/:id').put((req, res, next) => {
 	})
 })
 
-userRoute.route('/users/:id').put((req, res, next) => {
-	User.findByIdAndUpdate(req.params.id, {
-		$set: req.body
-	}, (error, data) => {
-		if (error) {
-			return next(error);
-			console.log(error)
-		} else {
-			res.json(data)
-			console.log('Data updated successfully')
-		}
-	})
-})
+
 
 // Delete employee
 userRoute.route('/users/:id').delete((req, res, next) => {
-	User.findOneAndRemove(req.params.id, (error, data) => {
+	User.findByIdAndRemove(req.params.id, (error, data) => {
 		if (error) {
 			return next(error);
 		} else {

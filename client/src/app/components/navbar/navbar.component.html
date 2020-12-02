@@ -14,15 +14,17 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item border-bottom">
-            <a class="nav-link" [routerLink]="['/']" (click)="setTitle( 'Dashboard' )">
-            <div class="d-flex flex-column align-items-center">
+            <a class="nav-link" [routerLink]="['/portal', {outlets: {'mainView': ['recent']}}]"
+              (click)="setTitle( 'Dashboard' )">
+              <div class="d-flex flex-column align-items-center">
                 <i class="fa fa-home  mb-1"></i>
-                Dashboard 
+                Recent Activity
               </div>
             </a>
           </li>
           <li class="nav-item border-bottom">
-            <a class="nav-link" [routerLink]="['/users']" (click)="setTitle( 'User Accounts' )">
+            <a class="nav-link" [routerLink]="['/portal', {outlets: {'mainView': ['users']}}]"
+              (click)="setTitle( 'User Accounts' )">
               <div class="d-flex flex-column align-items-center">
                 <i class="fa fa-user  mb-1"></i>
                 Users
@@ -30,7 +32,8 @@
             </a>
           </li>
           <li class="nav-item border-bottom">
-            <a class="nav-link" [routerLink]="['/articles']" (click)="setTitle( 'Articles' )">
+            <a class="nav-link" [routerLink]="['/portal', {outlets: {'mainView': ['articles']}}]"
+              (click)="setTitle( 'Articles' )">
               <div class="d-flex flex-column align-items-center">
                 <i class="fa fa-newspaper-o  mb-1"></i>
                 Articles
@@ -38,7 +41,7 @@
             </a>
           </li>
           <li class="nav-item border-bottom">
-            <a class="nav-link" [routerLink]="['/events']" (click)="setTitle( 'Events' )">
+            <a class="nav-link" disabled (click)="setTitle( 'Events' )">
               <div class="d-flex flex-column align-items-center">
                 <i class="fa fa-calendar  mb-1"></i>
                 Events

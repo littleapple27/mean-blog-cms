@@ -1,4 +1,4 @@
-<a routerLink="/users/create" class="btn btn-info mb-3"><i class="fa fa-plus"></i>
+<a [routerLink]="['create']" class=" btn btn-info mb-3"><i class="fa fa-plus"></i>
   Add New User</a>
 
 
@@ -45,7 +45,7 @@
               <i class="fa fa-eye" [ngClass]="user.hide ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
             </button>
 
-            <a class="btn btn-link  mr-2" (click)="removeUser(user, i)">
+            <a class="btn btn-link  mr-2" (click)="removeUser(user)">
               <i class="fa fa-trash"></i>
             </a>
 
@@ -55,7 +55,8 @@
         <div class="d-flex flex-column" *ngIf="!user.hide">
           <span>Email: {{ user.email }}</span>
           <div class="d-flex flex-md-row flex-sm-column">
-            <a class="mr-3" routerLink="/users/pw/{{user._id}}">Change Password</a>
+            <a class="mr-3" routerLink="pw/{{user._id}}">Change Password</a>
+            <!--TODO: ADD CHANGE ACCESS IN FINAL-->
             <a class="mr-3" href="#">Change Access</a>
           </div>
         </div>

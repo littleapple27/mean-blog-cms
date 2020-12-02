@@ -64,7 +64,7 @@ export class UserCreateComponent implements OnInit {
       this.userService.createUser(this.userCreateForm.value).subscribe(
         (res) => {
           console.log('User successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/users'))
+          this.ngZone.run(() => this.router.navigateByUrl('portal/(mainView:users)'))
         }, (error) => {
           console.log(error);
       });

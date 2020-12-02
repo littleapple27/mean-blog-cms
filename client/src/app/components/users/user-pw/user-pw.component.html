@@ -9,7 +9,8 @@
         <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label>New Password</label>
-            <input type="password" class="form-control mb-3" formControlName="pw" required validateEqual="confirmPassword" reverse="true">
+            <input type="password" class="form-control mb-3" formControlName="pw" required
+              validateEqual="confirmPassword" reverse="true">
             <label>Confirm Password</label>
             <input type="password" class="form-control" formControlName="pwConfirm" required validateEqual="password">
 
@@ -24,8 +25,9 @@
 
 
           <div class="modal-footer">
-            <button routerLink="/users" type="button" class="btn btn-secondary">Cancel</button>
-            <button class="btn btn-info" type="submit">Add New User</button>
+            <button [routerLink]="['/portal', {outlets: {'mainView': ['users']}}]" type="button"
+              class="btn btn-secondary">Cancel</button>
+            <button class="btn btn-info" type="submit">Update Password</button>
           </div>
         </form>
       </div>
