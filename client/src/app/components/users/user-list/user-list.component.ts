@@ -9,12 +9,9 @@ import { UserService } from '../../../services/user-api.service';
 export class UserListComponent implements OnInit {
   title: string = 'Registered Users';
   Users: any = [];
-
   loaded: boolean = false;
   
-  constructor(private userService: UserService) {
-    
-   }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
     this.readUser();
@@ -23,35 +20,34 @@ export class UserListComponent implements OnInit {
   readUser() {
     this.userService.getUsers().subscribe((data) => {
       this.Users = data;
-      console.log(data);
-    })    
+      this.loaded = true;
+    },
+      error => {
+        console.log(error);
+      });
   }
-
 
   removeUser(user):void {
     console.log(user);
     console.log(user._id);
     if(window.confirm('Are you sure you want to delete user?')) {
-        this.userService.deleteUser(user._id).subscribe((data) => {
-          this.readUser();
-          console.log(data);
-          console.log(this.Users);
-        }
-      )    
+      this.userService.deleteUser(user._id).subscribe((data) => {
+        this.readUser();
+        console.log(data);
+        console.log(this.Users);
+      },
+        error => {
+          console.log(error);
+        });   
     }
   }
 
-  // removeUser(user): void {
-    
-  //   this.userService.deleteUser(user._id)
-  //     .subscribe(
-  //       response => {
-  //         console.log(response);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
+  showAdminList() {
+  
+  }
 
+  showLimitedList() {
+    console.log('click');
+  }
 
 }

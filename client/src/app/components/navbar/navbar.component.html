@@ -1,5 +1,6 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0 d-flex justify-content-center align-items-center pb-4" href="https://littleapple27.dev"><img class="mr-2"
+      src="assets/img/icons/lilapplelogo.svg" alt="" width="25" height="25"><span class="pt-2">littleapple27.dev</span></a>
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
@@ -16,7 +17,7 @@
           <li class="nav-item border-bottom">
             <a class="nav-link" [routerLink]="['/portal', {outlets: {'mainView': ['recent']}}]"
               (click)="setTitle( 'Dashboard' )">
-              <div class="d-flex flex-column align-items-center">
+              <div class="d-flex flex-column align-items-center text-center">
                 <i class="fa fa-home  mb-1"></i>
                 Recent Activity
               </div>

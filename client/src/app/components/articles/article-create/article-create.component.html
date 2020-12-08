@@ -23,14 +23,15 @@
           <div class="form-group">
 
             <!-- Title -->
-            <h1 [froalaEditor]="optionsTitle" class="mt-4" formControlName="leadTitle">Post Title</h1>
+
+            <h1 [froalaEditor]="options" class="mt-4" formControlName="leadTitle"></h1>
             <!-- error -->
-            <!-- <div class="is-invalid text-danger" *ngIf="submitted && myForm.title.errors?.required">
+            <div class="is-invalid text-danger" *ngIf="submitted && myForm.title.errors?.required">
               Lead Title is required.
             </div>
             <div class="is-invalid text-danger" *ngIf="submitted && myForm.title.errors?.minLength">
               Lead Title must be at least 20 characters
-            </div> -->
+            </div>
           </div>
 
           <!-- Author -->
@@ -92,7 +93,7 @@
             the Moon but that they set
             eye on the earth.</p>
 
-          <h2 class="section-heading" [froalaEditor]="optionsTitle" formControlName="subTitle1">The Final Frontier</h2>
+          <h2 class="section-heading" [froalaEditor]="options" formControlName="subTitle1">The Final Frontier</h2>
 
           <p [froalaEditor]="optionsContent" formControlName="subContent1_1">There can be no thought of finishing for
             ‘aiming for the stars.’ Both
@@ -114,7 +115,7 @@
             development.
           </p>
 
-          <h2 class="section-heading" [froalaEditor]="optionsTitle" formControlName="subTitle2">Reaching for the Stars
+          <h2 class="section-heading" [froalaEditor]="options" formControlName="subTitle2">Reaching for the Stars
           </h2>
 
           <p [froalaEditor]="optionsContent" formControlName="subContent2_1">As we got further and further away, it [the
@@ -140,7 +141,8 @@
             gone before.</p>
 
           <div class="modal-footer">
-            <button routerLink="/articles" type="button" class="btn btn-secondary">Cancel</button>
+            <button [routerLink]="['/portal', {outlets: {'mainView': ['articles']}}]" type="button"
+              class="btn btn-secondary">Cancel</button>
             <button class="btn btn-info">Add Article</button>
           </div>
 

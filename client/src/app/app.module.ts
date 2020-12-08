@@ -20,6 +20,8 @@ import { UserCreateComponent } from './components/users/user-create/user-create.
 import { ArticleListComponent } from './components/articles/article-list/article-list.component';
 import { ArticleCreateComponent } from './components/articles/article-create/article-create.component';
 import { ArticleReadComponent } from './components/articles/article-read/article-read.component';
+import { UserPwComponent } from './components/users/user-pw/user-pw.component';
+import { ActivityFeedComponent } from './components/activity-feed/activity-feed.component';
 
 //Services
 import { UserService } from './services/user-api.service';
@@ -32,8 +34,6 @@ import { StripHtmlTagsPipe } from './directives/strip-html.directive';
 
 //Misc
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import { UserPwComponent } from './components/users/user-pw/user-pw.component';
-import { ActivityFeedComponent } from './components/activity-feed/activity-feed.component';
 
 
 @NgModule({

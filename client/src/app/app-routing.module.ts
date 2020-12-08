@@ -33,7 +33,8 @@ const routes: Routes = [
       path: 'recent',
       component: ActivityFeedComponent,
       outlet: 'mainView'
-  }, {
+    }, {
+    //User child routing
       path: 'users',
       component: UserListComponent,
         outlet: 'mainView',
@@ -48,15 +49,22 @@ const routes: Routes = [
         outlet: 'mainView',
       },
 
-
-
-
-      
+      //Article child routing
       {
         path: 'articles',
         component: ArticleListComponent,
         outlet: 'mainView'
-    }]
+      },
+      { path: 'articles/create', 
+        component: ArticleCreateComponent,
+        outlet: 'mainView'
+      },
+      {
+        path: 'articles/:id', 
+        component: ArticleReadComponent,
+        outlet: 'mainView',
+      },
+    ]
   },
   { path: '**', redirectTo: '' }
  

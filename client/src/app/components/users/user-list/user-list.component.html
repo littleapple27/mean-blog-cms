@@ -2,20 +2,21 @@
   Add New User</a>
 
 
-<div class="my-3 p-3 bg-white rounded shadow-sm clearfix">
+<div class="my-3 p-3 bg-white clearfix">
   <div class="d-flex flex-column flex-md-row border-bottom mb-3">
     <h1 class="border-gray mb-0">{{title}}</h1>
     <small class="d-flex flex-column flex-md-row mt-3 ml-auto text-md-right">
       <span class="mr-3">Filter by:</span>
-      <a class="mr-3" href="#">Administrator</a>
-      <a class="mr-3" href="#">Limited</a>
+      <!-- <a class="mr-3" (click)=showAll()>All</a> -->
+      <a class="mr-3" (click)=showAdminList()>Administrator</a>
+      <a class="mr-3" (click)=showLimitedList()>Limited</a>
     </small>
   </div>
 
   <!-- No  data message -->
   <div>
     <p *ngIf="Users?.length == 0" class="text-center text-muted">No Users found!</p>
-    <!-- <p *ngIf="!loaded">Loading Users...</p> -->
+    <p *ngIf="!loaded">Loading Users...</p>
   </div>
 
   <div *ngIf="Users?.length > 0">
