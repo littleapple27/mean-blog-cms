@@ -1,2 +1,4 @@
 # mean-blog-cms
-Under Construction
+Currently Under Construction! 
+
+A MEAN stack blog cms with WYSIWYG (Froala) editor.  
