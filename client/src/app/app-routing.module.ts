@@ -67,51 +67,6 @@ const routes: Routes = [
     ]
   },
   { path: '**', redirectTo: '' }
- 
-  
-
-  // //user routing 
-
-  // { path: 'users/create', 
-  //   component: UserCreateComponent,
-  // data: {
-  //   title: 'Create New User'
-  // }
-  // },
-  // {
-  //   path: 'users/pw/:id', 
-  //   component: UserPwComponent,
-  //   outlet: 'mainView',
-  // data: {
-  //   title: 'Change Password'
-  // }
-  // },
-  // //article routing
-  // { path: 'articles', 
-  //   component: ArticleListComponent,
-  //   data: {
-  //     title: 'Articles List'
-  //   }
-  // },
-  // { path: 'articles/create', 
-  //   component: ArticleCreateComponent,
-  //   data: {
-  //     title: 'Create New Article'
-  //   }
-  // },
-  // { path: 'articles/:id', 
-  //   component: ArticleReadComponent,
-  //   data: {
-  //     title: 'Read Article'
-  //   }
-  // },
-  // //events routing (TBD)
-  // { path: 'events', 
-  //   component: EventsComponent,
-  //   data: {
-  //     title: 'Manage Events'
-  //   }
-  // },
 ];
 
 @NgModule({

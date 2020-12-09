@@ -48,43 +48,40 @@
         <hr>
 
         <!-- Post Content -->
-        <div [innerHtml]="currentArticle.leadContent_1"></div>
+        <div class="mb-2" [innerHtml]="currentArticle.leadContent_1"></div>
 
-        <blockquote class="blockquote">
+        <blockquote class="blockquote mb-2">
           <p [innerHtml]="currentArticle.leadBQ | stripTags" class="mb-0">
           </p>
         </blockquote>
 
-        <div [innerHtml]="currentArticle.leadContent_2"></div>
+        <div class="mb-2" [innerHtml]="currentArticle.leadContent_2"></div>
 
-        <h2 [innerHtml]="currentArticle.subTitle1" class="section-heading">The Final Frontier</h2>
+        <h2 class="mb-2" [innerHtml]="currentArticle.subTitle1" class="section-heading">The Final Frontier</h2>
 
-        <div [innerHtml]="currentArticle.subContent1_1"></div>
+        <div class="mb-2" [innerHtml]="currentArticle.subContent1_1"></div>
 
-        <blockquote class="blockquote">
+        <blockquote class="blockquote mb-2">
           <p [innerHtml]="currentArticle.subBQ_1 | stripTags" class="mb-0">
           </p>
         </blockquote>
 
-        <div [innerHtml]="currentArticle.subContent1_2"></div>
+        <div class="mb-2" [innerHtml]="currentArticle.subContent1_2"></div>
 
 
-        <h2 [innerHtml]="currentArticle.subTitle2" class="section-heading"></h2>
+        <h2 class="mb-2" [innerHtml]="currentArticle.subTitle2" class="section-heading"></h2>
 
-        <div [innerHtml]="currentArticle.subContent2_1"></div>
+        <div class="mb-2" [innerHtml]="currentArticle.subContent2_1"></div>
 
         <!-- Preview Image -->
         <img class="img-fluid rounded" src="https://picsum.photos/900/300" alt="">
 
-        <span [innerHtml]="currentArticle.imgCaption" class="caption text-muted">To go places and do things that have
+        <span [innerHtml]="currentArticle.imgCaption" class="caption text-muted mb-2">To go places and do things that have
           never been done before – that’s what
           living is all about.</span>
 
-        <div [innerHtml]="currentArticle.subContent2_2"></div>
+        <div class="mt-2" [innerHtml]="currentArticle.subContent2_2"></div>
 
-        <p>Placeholder text by
-          <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
-          <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
 
 
       </div>
@@ -222,7 +219,7 @@
           <img class="img-fluid rounded" src="https://picsum.photos/600/400" alt="">
         </a>
 
-        <p class="caption text-muted mb-3" [froalaEditor]="options" formControlName="imgCaption">To go places
+        <p class="caption text-muted" [froalaEditor]="options" formControlName="imgCaption">To go places
           and do things that have never been done before – that’s what living is all about.</p>
 
         <p [froalaEditor]="options" formControlName="subContent2_2">Space, the final frontier. These are the

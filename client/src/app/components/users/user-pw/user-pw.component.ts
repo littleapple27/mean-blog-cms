@@ -60,7 +60,7 @@ export class UserPwComponent implements OnInit {
         let id = this.actRoute.snapshot.paramMap.get('id');
         this.userService.updateUser(id, this.editForm.value)
           .subscribe(res => {
-            this.router.navigateByUrl('/users');
+            this.router.navigateByUrl('portal/(mainView:users)');
             alert('Content updated successfully!')
           }, (error) => {
             console.log(error)

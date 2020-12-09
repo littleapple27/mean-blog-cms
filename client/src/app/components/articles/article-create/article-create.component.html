@@ -2,14 +2,14 @@
   <!-- Actions -->
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
     <h2 class="h2">Add Article</h2>
-    <div class="btn-toolbar mb-2 mb-md-0">
+    <!-- <div class="btn-toolbar mb-2 mb-md-0">
       <div class="btn-group mr-2">
         <a routerLink="/articles" class="btn btn-sm btn-outline-info"><i class="fa fa-eye-slash mr-2"></i>Hide
           Preview</a>
         <a routerLink="/edit" class="btn btn-sm btn-outline-primary"><i class="fa fa-pencil mr-2"></i>Edit</a>
         <button class="btn btn-sm btn-outline-success"><i class="fa fa-upload mr-2"></i>Publish</button>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <!-- Page Content -->
@@ -36,7 +36,7 @@
 
           <!-- Author -->
           <div class="form-group">
-            <p class="lead" [froalaEditor]="optionsAuthor" formControlName="author">
+            <p class="lead" [froalaEditor]="options" formControlName="author">
               by Start Bootstrap
             </p>
             <!-- error -->
@@ -73,7 +73,7 @@
           <hr>
 
           <!-- Post Content -->
-          <p [froalaEditor]="optionsContent" formControlName="leadContent_1">Never in all their history have men been
+          <p [froalaEditor]="options" formControlName="leadContent_1">Never in all their history have men been
             able
             truly to conceive of the world
             as one: a single sphere, a
@@ -83,32 +83,32 @@
             theory.
           </p>
 
-          <blockquote class="blockquote" [froalaEditor]="optionsBQ" formControlName="leadBQ">
+          <blockquote class="blockquote" [froalaEditor]="options" formControlName="leadBQ">
             <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
             </p>
           </blockquote>
 
-          <p [froalaEditor]="optionsContent" formControlName="leadContent_2">What was most significant about the lunar
+          <p [froalaEditor]="options" formControlName="leadContent_2">What was most significant about the lunar
             voyage was not that man set foot on
             the Moon but that they set
             eye on the earth.</p>
 
           <h2 class="section-heading" [froalaEditor]="options" formControlName="subTitle1">The Final Frontier</h2>
 
-          <p [froalaEditor]="optionsContent" formControlName="subContent1_1">There can be no thought of finishing for
+          <p [froalaEditor]="options" formControlName="subContent1_1">There can be no thought of finishing for
             ‘aiming for the stars.’ Both
             figuratively and literally, it is a
             task to occupy the generations. And no matter how much progress one makes, there is always the thrill of
             just beginning.</p>
 
-          <blockquote class="blockquote" [froalaEditor]="optionsContent" formControlName="subBQ_1">The dreams of
+          <blockquote class="blockquote" [froalaEditor]="options" formControlName="subBQ_1">The dreams of
             yesterday
             are the hopes of today and
             the reality of tomorrow.
             Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for
             the next ten.</blockquote>
 
-          <p [froalaEditor]="optionsContent" formControlName="subContent1_2">Spaceflights cannot be stopped. This is not
+          <p [froalaEditor]="options" formControlName="subContent1_2">Spaceflights cannot be stopped. This is not
             the work of any one man or even a
             group of men. It is a historical process which mankind is carrying out in accordance with the natural
             laws of human
@@ -118,7 +118,7 @@
           <h2 class="section-heading" [froalaEditor]="options" formControlName="subTitle2">Reaching for the Stars
           </h2>
 
-          <p [froalaEditor]="optionsContent" formControlName="subContent2_1">As we got further and further away, it [the
+          <p [froalaEditor]="options" formControlName="subContent2_1">As we got further and further away, it [the
             Earth]
             diminished in size. Finally
             it shrank to the size of a
@@ -131,10 +131,10 @@
             <img class="img-fluid rounded" src="https://picsum.photos/600/400" alt="">
           </a>
 
-          <p class="caption text-muted mb-3" [froalaEditor]="optionsImgCap" formControlName="imgCaption">To go places
+          <p class="caption text-muted mb-3" [froalaEditor]="options" formControlName="imgCaption">To go places
             and do things that have never been done before – that’s what living is all about.</p>
 
-          <p [froalaEditor]="optionsContent" formControlName="subContent2_2">Space, the final frontier. These are the
+          <p [froalaEditor]="options" formControlName="subContent2_2">Space, the final frontier. These are the
             voyages of the Starship Enterprise.
             Its five-year mission: to
             explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has

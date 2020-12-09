@@ -35,43 +35,6 @@ public options: Object = {
   pastePlain: true
 }
 
-  public optionsAuthor: Object = {
-    toolbarInline: true,
-    toolbarVisibleWithoutSelection: true,
-    placeholderText: 'Click to Add Author',
-    pastePlain: true,
-    pasteDeniedAttrs: ['style']
-    //charCounterCount: true
-  }
-
-  public optionsContent: Object = {
-    toolbarInline: true,
-    toolbarVisibleWithoutSelection: true,
-    placeholderText: 'Click to add content',
-    pastePlain: true,
-    pasteDeniedAttrs: ['style']
-    //charCounterCount: true
-  }
-
-  public optionsBQ: Object = {
-    toolbarInline: true,
-    toolbarVisibleWithoutSelection: true,
-    placeholderText: 'Click to add blockquote',
-    pastePlain: true,
-    pasteDeniedAttrs: ['style']
-    //charCounterCount: true
-  }
-
-  public optionsImgCap: Object = {
-    toolbarInline: true,
-    toolbarVisibleWithoutSelection: true,
-    placeholderText: 'Click to add image caption',
-    pastePlain: true,
-    pasteDeniedAttrs: ['style']
-    //charCounterCount: true
-  }
-
-
   submitted = false;
   articleCreateForm: FormGroup;
   showExtended: boolean = false;
@@ -162,3 +125,5 @@ onSubmit() {
 
 //TODO Need to work on image upload both component and html
 //TODO drop down selection for Author based on registered users.
+//TODO Froala Editor validation
+//TODO Authentication for app using JWT, bycrypt
